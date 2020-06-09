@@ -1,5 +1,6 @@
 ---
 - name: Patching of RHEL systems
+  hosts: localhost
   tasks:
     - name: add host to "selectIP" group
       add_host:
