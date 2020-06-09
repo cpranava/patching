@@ -23,15 +23,5 @@
         name: '*'
         state: latest
       
-       
-     
-#   tasks:
-#     - name: Check if RHEL system
-#       yum:
-#         name: vim
-#         state: latest
-#       debug:
-#         var=hostvars[inventory_hostname].ansible_distribution
- # when: hostvars[inventory_hostname].ansible_distribution == "  
-   
+
    
