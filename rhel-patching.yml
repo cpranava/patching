@@ -7,12 +7,15 @@
   become_method: sudo
   
   tasks:
-    - name: Check if RHEL system
-      yum:
-        name: vim
-        state: latest
-      debug:
+    - debug:
         var=hostvars[inventory_hostname].ansible_distribution
+#   tasks:
+#     - name: Check if RHEL system
+#       yum:
+#         name: vim
+#         state: latest
+#       debug:
+#         var=hostvars[inventory_hostname].ansible_distribution
  # when: hostvars[inventory_hostname].ansible_distribution == "  
    
    
