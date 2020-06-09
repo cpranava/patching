@@ -1,6 +1,6 @@
 ---
 - name: Patching of RHEL systems
-  hosts: all
+  hosts: guests
   connection: ssh
   gather_facts: yes
   become: true
