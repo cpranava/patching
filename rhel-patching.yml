@@ -1,6 +1,12 @@
 ---
 - name: Patching of RHEL systems
-  hosts: "{{ host_ip }}"
+  tasks:
+    - name: add host to "selectIP" group
+      add_host:
+        groups: selectIP
+        name: {{ host_ip }}
+        
+- hosts: selectIP
   connection: ssh
   gather_facts: yes
   become: true
