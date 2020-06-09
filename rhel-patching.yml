@@ -6,10 +6,15 @@
   become: true
   become_method: sudo
   
-  tasks:
-    - name: print ips 
-      debug:
-         var=hostvars[inventory_hostname].ansible_distribution
+  tasks:    
+    - name:
+      fail:
+        msg: "Virtual Machine does not have RHEL OS"
+      when: var=hostvars[inventory_hostname].ansible_distribution == "CentOS"
+    - name: update the packages
+      yum:
+        name: '*'
+        state: latest
       
        
      
