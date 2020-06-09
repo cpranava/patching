@@ -4,7 +4,7 @@
     - name: add host to "selectIP" group
       add_host:
         groups: selectIP
-        name: {{ host_ip }}
+        name: "{{ host_ip }}"
         
 - hosts: selectIP
   connection: ssh
