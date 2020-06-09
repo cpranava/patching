@@ -1,7 +1,7 @@
 ---
 - name: Patching of RHEL systems
-  connection: ssh
   hosts: all
+  connection: ssh
   gather_facts: yes
   become: true
   become_method: sudo
