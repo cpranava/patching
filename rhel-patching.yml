@@ -7,8 +7,10 @@
   become_method: sudo
   
   tasks:
-    - debug:
-        var=hostvars[inventory_hostname].ansible_distribution
+    - name: print ips 
+      shell:
+        cmd: ip a
+     
 #   tasks:
 #     - name: Check if RHEL system
 #       yum:
