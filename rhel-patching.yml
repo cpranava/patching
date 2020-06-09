@@ -1,6 +1,6 @@
 ---
 - name: Patching of RHEL systems
-  hosts: guests
+  hosts: rhel7_64Guest
   connection: ssh
   gather_facts: yes
   become: true
