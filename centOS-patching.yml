@@ -16,27 +16,21 @@
   become_method: sudo
   
   tasks: 
-    - debug: var=ansible_all_ipv4_addresses
-    - debug: var=ansible_distribution
-#     - name: Check  if VM is RHEL machine
-#       vars:
-#         os: hostvars[inventory_hostname]['ansible_distribution']   
-#     - name: check os
-#       debug:
-#         var: os
+    - name: Check  if VM is RHEL machine
+      fail:
+        msg: " The Machine is neither CentOS or Debian based VM "
+      when: ansible_distribution != "CentOS" or ansible_distribution != 'Debian'
+    - name: patching for CentOS machine
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_distribution == "CentOS"
+    - name: patching for Debian machine 
+      apt:
+        name: '*'
+        state: latest
+      when: ansible_distribution == "Debian"
 
-#     - name: Check if machine has RedHat Subscription
-#       shell:
-#         cmd: subscription-manager list | awk '/Status:/ {print $2}'
-#       register: status
-#     - name: Fail if subscription is not available 
-#       fail:
-#         msg: " The Virtual Machine does not have RedHat Subscription. Get RedHat Subscription before proceeding "
-#       when: status != "Subscribed"
-#     - name: update the packages
-#       yum:
-#         name: '*'
-#         state: latest
 
 
    
