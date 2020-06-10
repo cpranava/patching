@@ -26,7 +26,7 @@
       register: status
     - name: Fail if subscription is not available 
       fail:
-        msg: " The Virtual Machine does not have RedHat Subscription "
+        msg: " The Virtual Machine does not have RedHat Subscription. Get RedHat Subscription before proceeding "
       when: status != "Subscribed"
     - name: update the packages
       yum:
