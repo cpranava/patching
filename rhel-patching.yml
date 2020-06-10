@@ -19,7 +19,7 @@
     - name:
       fail:
         msg: "Virtual Machine does not have RHEL OS"
-      when: hostvars[inventory_hostname]['ansible_distribution'] == "RedHat"
+      when: hostvars[inventory_hostname]['ansible_distribution'] =! "RedHat"
     - name: update the packages
       yum:
         name: '*'
