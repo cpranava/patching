@@ -1,8 +1,6 @@
 ---
 - name: Patching of RHEL systems
   hosts: localhost
-  become: true
-  become_method: sudo
   tasks:
     - debug:
         msg: "Host IP: {{ host_ip }}"
