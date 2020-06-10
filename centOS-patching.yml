@@ -4,12 +4,12 @@
   tasks:
     - name: add host to selectIP group
       add_host:
-        groups: selectIP
+        groups: selectedIP
         name: "{{ host_ip }}"
     - debug:
         msg: "Host IP: {{ host_ip }}"
         
-- hosts: selectIP
+- hosts: selectedIP
   connection: ssh
   gather_facts: yes
   become: true
