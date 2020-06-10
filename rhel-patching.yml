@@ -6,6 +6,8 @@
       add_host:
         groups: selectIP
         name: "{{ host_ip }}"
+      debug:
+        msg: "Host IP: {{ host_ip }}"
         
 - hosts: selectIP
   connection: ssh
