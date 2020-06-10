@@ -16,7 +16,7 @@
   become_method: sudo
   
   tasks:    
-    - name:
+    - name: Check  if VM is RHEL machine
       fail:
         msg: "Virtual Machine does not have RHEL OS"
       when: hostvars[inventory_hostname]['ansible_distribution'] != "RedHat"
