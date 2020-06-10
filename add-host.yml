@@ -4,13 +4,15 @@
   become: true
   become_method: sudo
   tasks:
-    - name: add host to selectIP group
-      add_host:
-        groups: selectIP
-        name: "{{ host_ip }}"
     - debug:
         msg: "Host IP: {{ host_ip }}"
-        
+      
+      
+      
+#     - name: add host to selectIP group
+#       add_host:
+#         name: "{{ host_ip }}"
+#         groups: selectIP
 # - hosts: selectIP
 
   
