@@ -16,6 +16,7 @@
   become_method: sudo
   
   tasks: 
+    - debug: var=ansible_all_ipv4_addresses
     - debug: var=ansible_distribution
 #     - name: Check  if VM is RHEL machine
 #       vars:
