@@ -16,12 +16,13 @@
   become_method: sudo
   
   tasks: 
-    - name: Check  if VM is RHEL machine
-      vars:
-        os: hostvars[inventory_hostname]['ansible_distribution']   
-    - name: check os
-      debug:
-        var: os
+    - debug: var=ansible_distribution
+#     - name: Check  if VM is RHEL machine
+#       vars:
+#         os: hostvars[inventory_hostname]['ansible_distribution']   
+#     - name: check os
+#       debug:
+#         var: os
 
 #     - name: Check if machine has RedHat Subscription
 #       shell:
