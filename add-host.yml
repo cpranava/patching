@@ -4,6 +4,8 @@
   hosts: localhost
   connection: local
   tasks:
+    - name: List all variables
+      var: hostvars[inventory_hostname]
     - name: Ansible Hostname
       debug:
         var: ANSIBLE_HOSTNAME
