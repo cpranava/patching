@@ -22,7 +22,7 @@
      - name: Login to tower
        shell: "tower-cli login {{ hostvars[inventory_hostname]['ansible_env']['TOWER_USERNAME'] }} --password {{ hostvars[inventory_hostname]['ansible_env']['TOWER_PASSWORD'] }}"
      - name: Add tower group
-       shell: tower-cli host associate --host "{{ item.id }}" --group "{{fs_group.id}}" --insecure
+       shell: "tower-cli host associate --host {{ inventory_managed_host }} --group {{ inventory_group }} --insecure"
 
 
       
