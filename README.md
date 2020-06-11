@@ -15,7 +15,7 @@ fields:
     label: Subscription manager username
   - type: string
     id: password
-    label: "Subscription manager password (🙈🙉🙊)"
+    label: "Subscription manager password"
     secret: True
 required:
   - username
