@@ -1,20 +1,9 @@
----
-- name: Patching of RHEL systems
-  hosts: localhost
-  tasks:
-    - name: add host to selectIP group
-      add_host:
-        groups: selectIP
-        name: "{{ host_ip }}"
-    - debug:
-        msg: "Host IP: {{ host_ip }}"
-        
-- hosts: selectIP
+
+- hosts: "{{ inventory_managed_host }}"
   connection: ssh
   gather_facts: yes
   become: true
-  become_method: sudo
-  
+  become_method: sudo  
   tasks:    
     - name: Check  if VM is RHEL machine
       fail:
