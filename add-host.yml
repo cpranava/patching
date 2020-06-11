@@ -1,0 +1,13 @@
+
+---
+- name: Add to inventory
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: add host to Ansible Tower inventory
+      tower_host:
+      name: {{ host_ip }}
+      inventory: {{ inventory_name }}
+      state: present
+      tower_config_file: "~/tower_cli.cfg"
+      
