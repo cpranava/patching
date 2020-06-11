@@ -1,0 +1,14 @@
+---
+ - name: Playbook to add user to domain
+   hosts: all
+   tasks:
+     - name: Ensure user bob is created and use custom credentials to create the user
+       win_domain_user:
+         name: "{{ win_user_name }}"
+         firstname: "{{ first_name }}"
+         surname: "{{ last_name }}"
+         password: "{{ win_password }}"
+         state: present
+         domain_username: "{{ win_domain }}\{{ win_admin_account }}"
+         domain_password: "{{ win_domain_password }}"
+         domain_server: "{{ win_domain_server }}@{{ win_domain}}.COM"
