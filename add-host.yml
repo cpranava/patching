@@ -6,7 +6,7 @@
   tasks:
      - name: Add the host to the inventory
        tower_host:
-         name: "{{ item }}"
+         name: "{{ inventory_managed_host }}"
          inventory: Demo Inventory
          state: present
          tower_host: {{ TOWER_HOST }}
