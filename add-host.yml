@@ -4,9 +4,12 @@
   hosts: localhost
   connection: local
   tasks:
-     - debug: var: TOWER_HOST
-     - debug: var: TOWER_USERNAME
-     - debug: var: TOWER_PASSWORD
+     - debug: 
+         var: TOWER_HOST
+     - debug: 
+         var: TOWER_USERNAME
+     - debug: 
+         var: TOWER_PASSWORD
      - name: Add the host to the inventory
        tower_host:
          name: "{{ inventory_managed_host }}"
