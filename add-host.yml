@@ -6,13 +6,13 @@
   tasks:
     - name: Ansible Hostname
       debug:
-        var: ANSIBLE_TOWER_HOSTNAME
+        var: ANSIBLE_HOSTNAME
     - name: Ansible Username
       debug:
-        var: ANSIBLE_TOWER_USERNAME
+        var: ANSIBLE_USERNAME
     - name: Ansible Password
       debug:
-        var: ANSIBLE_TOWER_PASSWORD
+        var: ANSIBLE_PASSWORD
 #     - name: Add the host to the inventory
 #       tower_host:
 #         name: "{{ item }}"
