@@ -2,7 +2,7 @@
  - name: Playbook to add user to domain
    hosts: all
    tasks:
-     - name: Ensure user bob is created and use custom credentials to create the user
+     - name: Create user
        win_domain_user:
          name: "{{ win_user_name }}"
          firstname: "{{ first_name }}"
@@ -11,4 +11,4 @@
          state: present
          domain_username: "{{ win_domain }}\\{{ ansible_user }}"
          domain_password: "{{ ansible_password }}"
-         domain_server: "{{ win_domain_server }}@{{ win_domain }}.COM"
+         #domain_server: "{{ win_domain_server }}@{{ win_domain }}.COM"
