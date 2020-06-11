@@ -15,9 +15,9 @@
          name: "{{ inventory_managed_host }}"
          inventory: "{{ inventory_name }}"
          state: present
-         tower_host: hostvars[inventory_hostname]['ansible_env']['TOWER_HOST']
-         tower_username: hostvars[inventory_hostname]['ansible_env']['TOWER_USERNAME']
-         tower_password: hostvars[inventory_hostname]['ansible_env']['TOWER_PASSWORD']
+         tower_host: "{{  hostvars[inventory_hostname]['ansible_env']['TOWER_HOST'] }}"
+         tower_username: "{{ hostvars[inventory_hostname]['ansible_env']['TOWER_USERNAME'] }}"
+         tower_password: "{{ hostvars[inventory_hostname]['ansible_env']['TOWER_PASSWORD'] }}"
          tower_verify_ssl: no
 
       
