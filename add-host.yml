@@ -4,26 +4,14 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: List all variables
-      debug: 
-        var: hostvars[inventory_hostname]
-    - name: Ansible Hostname
-      debug:
-        var: ANSIBLE_HOSTNAME
-    - name: Ansible Username
-      debug:
-        var: ANSIBLE_USERNAME
-    - name: Ansible Password
-      debug:
-        var: ANSIBLE_PASSWORD
-#     - name: Add the host to the inventory
-#       tower_host:
-#         name: "{{ item }}"
-#         inventory: "AWS Instance Temp Inventory"
-#         state: present
-#         tower_host: '103.127.28.115'
-#         tower_username: 'inventory_user'
-#         tower_password: 'pr0dev@ns987'
-#         tower_verify_ssl: no
+     - name: Add the host to the inventory
+       tower_host:
+         name: "{{ item }}"
+         inventory: Demo Inventory
+         state: present
+         tower_host: {{ TOWER_HOST }}
+         tower_username: {{ TOWER_USERNAME }}
+         tower_password: {{ TOWER_PASSWORD }}
+         tower_verify_ssl: no
 
       
