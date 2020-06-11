@@ -20,11 +20,18 @@
       fail:
         msg: "Virtual Machine does not have RHEL OS"
       when: hostvars[inventory_hostname]['ansible_distribution'] != "RedHat"
+    - name: Install RHSM and Insights
+      yum:
+      name: '{{ item }}'
+      state: present
+      with_items:
+      - redhat-access-insights
+      - subscription-manager
     - name: Subscribing to pool-id
       redhat_subscription:
         state: present
-        username: user
-        password: password
+        username: '{{ rhsm_username }}'
+        password: '{{ rhsm_password }}'
         pool_ids: id
     - name: Enable all Repositories
       rhsm_repository:
