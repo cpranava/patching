@@ -6,12 +6,12 @@
   tasks:
      - name: Add the host to the inventory
        tower_host:
-         name: {{ inventory_managed_host }}
-         inventory: {{ inventory_name }}
+         name: "{{ inventory_managed_host }}"
+         inventory: "{{ inventory_name }}"
          state: present
-         tower_host: {{ TOWER_HOST }}
-         tower_username: {{ TOWER_USERNAME }}
-         tower_password: {{ TOWER_PASSWORD }}
+         tower_host: "{{ TOWER_HOST }}"
+         tower_username: "{{ TOWER_USERNAME }}"
+         tower_password: "{{ TOWER_PASSWORD }}"
          tower_verify_ssl: no
 
       
