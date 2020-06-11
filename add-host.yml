@@ -5,19 +5,19 @@
   connection: local
   tasks:
      - debug: 
-         var: lookup('ansible_env','TOWER_HOST')
+         var: hostvars[inventory_hostname]['ansible_env']['TOWER_HOSTNAME']
      - debug: 
-         var: lookup('ansible_env','TOWER_USERNAME')
+         var: hostvars[inventory_hostname]['ansible_env']['TOWER_USERNAME']
      - debug: 
-         var: lookup('ansible_env','TOWER_PASSWORD')
+         var: hostvars[inventory_hostname]['ansible_env']['TOWER_PASSWORD']
      - name: Add the host to the inventory
        tower_host:
          name: "{{ inventory_managed_host }}"
          inventory: "{{ inventory_name }}"
          state: present
-         tower_host: lookup('ansible_env','TOWER_HOST')
-         tower_username: lookup('ansible_env','TOWER_USERNAME')
-         tower_password: lookup('ansible_env','TOWER_PASSWORD')
+         tower_host: hostvars[inventory_hostname]['ansible_env']['TOWER_HOSTNAME']
+         tower_username: hostvars[inventory_hostname]['ansible_env']['TOWER_USERNAME']
+         tower_password: hostvars[inventory_hostname]['ansible_env']['TOWER_PASSWORD']
          tower_verify_ssl: no
 
       
