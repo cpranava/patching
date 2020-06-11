@@ -4,10 +4,23 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: add host to Ansible Tower inventory
-      tower_host:
-      name: {{ host_ip }}
-      inventory: {{ inventory_name }}
-      state: present
-      tower_config_file: "~/tower_cli.cfg"
+    - name: Ansible Hostname
+      debug:
+        var: ANSIBLE_TOWER_HOSTNAME
+    - name: Ansible Username
+      debug:
+        var: ANSIBLE_TOWER_USERNAME
+    - name: Ansible Password
+      debug:
+        var: ANSIBLE_TOWER_PASSWORD
+#     - name: Add the host to the inventory
+#       tower_host:
+#         name: "{{ item }}"
+#         inventory: "AWS Instance Temp Inventory"
+#         state: present
+#         tower_host: '103.127.28.115'
+#         tower_username: 'inventory_user'
+#         tower_password: 'pr0dev@ns987'
+#         tower_verify_ssl: no
+
       
