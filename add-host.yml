@@ -19,5 +19,10 @@
          tower_username: "{{ hostvars[inventory_hostname]['ansible_env']['TOWER_USERNAME'] }}"
          tower_password: "{{ hostvars[inventory_hostname]['ansible_env']['TOWER_PASSWORD'] }}"
          tower_verify_ssl: no
+     - name: Login to tower
+       shell: "tower-cli login {{ hostvars[inventory_hostname]['ansible_env']['TOWER_USERNAME'] }} --password {{ hostvars[inventory_hostname]['ansible_env']['TOWER_PASSWORD'] }}"
+     - name: Add tower group
+       shell: tower-cli host associate --host "{{ item.id }}" --group "{{fs_group.id}}" --insecure
+
 
       
