@@ -11,4 +11,4 @@
          state: present
          domain_username: "{{ win_domain }}\{{ win_admin_account }}"
          domain_password: "{{ win_domain_password }}"
-         domain_server: "{{ win_domain_server }}@{{ win_domain}}.COM"
+         domain_server: "{{ win_domain_server }}@{{ win_domain }}.COM"
