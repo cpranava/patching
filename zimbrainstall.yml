@@ -1,4 +1,4 @@
-- hosts: {{ zimbra_server_ip }} 
+- hosts: "{{ zimbra_server_ip }}"
   roles:
      - role: harpreet.zimbra
        hostname: "{{ansible_hostname}}"
