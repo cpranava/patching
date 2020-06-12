@@ -1,0 +1,79 @@
+---
+#
+# Baseline configuration
+###############################
+- import_tasks: baseline.yml
+  when: baseline is defined
+
+
+# Validations before run the playbook
+################################################################################
+- name: Checking if there is an Zimbra OSE install already
+  command: getent passwd zimbra
+  register: getent_passwd
+  ignore_errors: true
+
+#
+# Installation process
+################################################################################
+- import_tasks: 'install/vars.yml'
+  when: getent_passwd.rc == 2
+- import_tasks: 'install/dependencies.yml'
+  when: getent_passwd.rc == 2
+- import_tasks: 'install/zimbra.yml'
+  when: getent_passwd.rc == 2
+- import_tasks: 'install/policyd.yml'
+  when: zimbra_policyd == 'y'
+
+#
+# Configuration process
+################################################################################
+- import_tasks: 'configure/mailbox.yml'
+  when: zimbra_store == 'y'
+
+
+#
+# Starting Zimbra
+################################################################################
+- name: setting appropriate permission for zimbra user
+  file:
+    path: /opt/zimbra
+    state: directory
+    owner: zimbra
+    group: zimbra
+
+- name: 'Starting Zimbra OSE Services'
+  shell: ./zmcontrol start
+  args:
+    chdir: '/opt/zimbra/bin/'
+  become: true
+  become_method: su
+  become_user: zimbra
+  ignore_errors: true
+
+
+#
+# Configuring firewall Rules
+################################################################################
+- name: starting firewall service
+  service:
+     name: firewalld
+     state: started
+     enabled: true
+
+- name: allow services in firewalld
+  firewalld:
+    service: "{{ item }}"
+    state: enabled
+    permanent: true
+    immediate: true
+  loop: "{{ zmservices }}"
+
+
+- name: allow ports in firewalld
+  firewalld:
+    port: "{{ item }}"
+    state: enabled
+    permanent: true
+    immediate: true
+  loop: "{{ zmports }}"

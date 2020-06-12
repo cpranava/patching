@@ -1,0 +1,15 @@
+---
+#
+# Installing dependencies and removing other smtp servers
+################################################################################
+- name: Ensure Sendmail and Postfix is not installed
+  package:
+    name: "{{ absent }}"
+    state: absent
+
+- name: Ensure Pyzor and Razor is installed (CentOS/RedHat)
+  yum:
+    name: "{{ centos }}"
+    state: present
+  when: ansible_os_family == "RedHat"
+
