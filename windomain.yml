@@ -11,4 +11,3 @@
          state: present
          domain_username: "{{ win_domain }}\\{{ ansible_user }}"
          domain_password: "{{ ansible_password }}"
-         #domain_server: "{{ win_domain_server }}@{{ win_domain }}.COM"
