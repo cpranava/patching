@@ -1,7 +1,7 @@
 - hosts: {{ zimbra_server_ip }} 
   roles:
      - role: harpreet.zimbra
-       hostname: "ansible"
+       hostname: "{{managed_host_hostname}}"
        domain: "{{PRODEVINDIA}}"
        zmpasswd: "redhat"
        zmnetwork: "192.168.1.0/24"
