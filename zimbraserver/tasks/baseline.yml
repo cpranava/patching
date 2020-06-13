@@ -2,6 +2,11 @@
 #
 # Update packages
 ###############################################################################
+- name: Install the default packages for CentOS/RedHat System
+  yum:
+    name: epel-release
+    state: latest
+  when: ansible_os_family == "RedHat"
 
 - name: Install the default packages for CentOS/RedHat System
   yum:
