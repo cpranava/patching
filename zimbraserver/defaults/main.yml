@@ -27,9 +27,9 @@ multidist:
   - libaio 
   - libstdc++ 
   - firewalld
-  - ntpl
 
 centos_repo:
+  - ntpl
 #   - deltarpm
 #   - libselinux-python
 #   - policycoreutils-python
