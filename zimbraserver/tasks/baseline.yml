@@ -39,6 +39,6 @@
 - name: Including the hostname in /etc/hosts
   lineinfile:
     path: /etc/hosts
-    line: '{{ zmhostip }} {{ hostname }}.{{ domain }} {{ hostname }}'
+    line: '{{ zimbra_server_ip }} {{ hostname }}.{{ domain }} {{ hostname }}'
     state: present
 
