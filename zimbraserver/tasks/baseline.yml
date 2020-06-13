@@ -17,10 +17,10 @@
 #     update_cache: yes
 #   when: ansible_os_family == "RedHat"
 
-- name: Install the default packages for the playbook
-  package:
-    name: "{{ multidist }}"
-    state: latest
+# - name: Install the default packages for the playbook
+#   package:
+#     name: "{{ multidist }}"
+#     state: latest
 
 #
 # Hostname and Network
