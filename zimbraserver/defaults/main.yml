@@ -32,6 +32,6 @@ centos_repo:
   - deltarpm
   - libselinux-python
   - policycoreutils-python
- # - epel-release
+  - epel-release
  
 baseline:
