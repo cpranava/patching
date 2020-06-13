@@ -2,8 +2,9 @@
 #
 # Update packages
 ###############################################################################
+
 - name: Install epel-repo
-  yum_repo:
+  yum_repository:
     name: epel-release
     baseurl: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
   when: ansible_os_family = "RedHat"
