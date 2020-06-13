@@ -30,9 +30,9 @@ multidist:
   - ntpl
 
 centos_repo:
-  - deltarpm
-  - libselinux-python
-  - policycoreutils-python
-  - epel-release
+#   - deltarpm
+#   - libselinux-python
+#   - policycoreutils-python
+#   - epel-release
  
 baseline:
