@@ -27,6 +27,7 @@ multidist:
   - libaio 
   - libstdc++ 
   - firewalld
+  - ntpl
 
 centos_repo:
   - deltarpm
