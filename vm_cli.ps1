@@ -1,3 +1,9 @@
+param (
+    [Parameter(Mandatory=$true)][string]$vcenter_server,
+    [Parameter(Mandatory=$true)][string]$vcenter_user,
+    [Parameter(Mandatory=$true)][string]$vcenter_password,
+ )
+
 #Connecting to vCenter
 Connect-VIServer -Server $vcenter_server -User $vcenter_user -Password $vcenter_password | Out-Null
 
