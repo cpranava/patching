@@ -6,9 +6,12 @@
     - debug: var=ansible_hostname
     - debug:
         var: project_path
+    - copy:
+        src: vm_cli.ps1
+        dest: /tmp
 
     - name: Collecting all poweredoff VM Names
-      shell:  vm_cli.ps1
+      shell:  /tmp/vm_cli.ps1
       register: vmnames
 
     - debug: var=vmnames
