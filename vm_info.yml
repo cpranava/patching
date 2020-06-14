@@ -2,6 +2,7 @@
 - hosts: localhost
   gather_facts: true
   become: yes
+  connection: local
   vars:
     project_path: "{{ lookup('env', 'PWD') }}"
   tasks:
