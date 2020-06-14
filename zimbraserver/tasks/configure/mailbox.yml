@@ -7,13 +7,13 @@
   args:
     chdir: /opt/zimbra/libexec/
 
-- name: Starting automatic scanning of Email using ClamAV
-  command: ./zmprov mcf zimbraAttachmentsScanURL  clam://localhost:3310/
-  args:
-    chdir: /opt/zimbra/bin/
+# - name: Starting automatic scanning of Email using ClamAV
+#   command: ./zmprov mcf zimbraAttachmentsScanURL  clam://localhost:3310/
+#   args:
+#     chdir: /opt/zimbra/bin/
 
-- name: Enabling automatic scanning of Email using ClamAV
-  command: ./zmprov mcf zimbraAttachmentsScanEnabled TRUE 
-  args:
-    chdir: /opt/zimbra/bin/
+# - name: Enabling automatic scanning of Email using ClamAV
+#   command: ./zmprov mcf zimbraAttachmentsScanEnabled TRUE 
+#   args:
+#     chdir: /opt/zimbra/bin/
 
