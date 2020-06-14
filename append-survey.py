@@ -2,10 +2,10 @@ import json
 import sys
 import requests
 
-ANSIBLE_HOST_IP=192.168.1.202
+ANSIBLE_HOST_IP=sys.argv[2]
 ANSIBLE_JOB_TEMPLATE=22
-ANSIBLE_USERNAME=sys.argv[2]
-ANSIBLE_PASSWORD=sys.argv[3]
+ANSIBLE_USERNAME=sys.argv[3]
+ANSIBLE_PASSWORD=sys.argv[4]
 
 #Load
 finallist = list(sys.argv[1].replace('[','').replace(']','').replace(',','')) 
