@@ -1,36 +1,18 @@
 ---
 - hosts: localhost
   gather_facts: false
-  vars:
-    vcenter_server: 192.168.1.182
-    vcenter_user: administrator
-    vcenter_pass: Redhat@123
-    vcenter_cluster: Datacenter1
-    #final_delete:
-  vars_files:
-    - /tmp/vm_name_vars.yml
   tasks:
-    - debug: var=vm_name
-
-    - name: deleting vm
-      debug:
-        msg: "Deleting {{ vm_name }}"
-
-    - name: Remove "{{ vm_name }}"
+    - name: Remove "{{ vm_names }}"
       vmware_guest:
-        hostname: "{{ vcenter_server }}"
-        username: "{{ vcenter_user }}"
-        password: "{{ vcenter_pass }}"
+        hostname: '{{ lookup('env', 'VMWARE_HOST') }}'
+        username: '{{ lookup('env', 'VMWARE_USER') }}'
+        password: '{{ lookup('env', 'VMWARE_PASSWORD') }}'
         validate_certs: no
-        #cluster: "{{ vcenter_cluster }}"
-        name: "{{ item }}"
+        name: "{{ item | trim }}"
         state: absent
       register: vm_deletion_output
       loop: "{{ vm_name }}"
       when: vm_name is defined and final_delete is defined
-
-    #- debug:
-    #    msg: "{{ vm_deletion_output | default(omit) }}"
 
     - debug:
         msg: "VMs deleted successfully"
