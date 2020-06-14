@@ -16,7 +16,7 @@ json_survey_string = '{ "description": "", "name": "", "spec": [] }'
 json_survey = json.loads(json_survey_string)
 
 #Create final survey value
-json_survey["spec"].append({"question_description": "Select the list of VMs to be deleted", "default": "", "min":"null", "max":"null", "choices": finallist.replace('\\n', '\n'), "variable": "vm_name", "question_name": "VM names", "type": "multiplechoice", "required": "true"})
+json_survey["spec"].append({"question_description": "Select the list of VMs to be deleted", "default": "", "min":"null", "max":"null", "choices": final_list_string.replace('\\n', '\n'), "variable": "vm_name", "question_name": "VM names", "type": "multiplechoice", "required": "true"})
 
 headers = {
     'content-type': 'application/json',
