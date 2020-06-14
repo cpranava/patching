@@ -19,4 +19,4 @@
         vm_list: "{{ vmnames.stdout_lines }}"
     - debug: var=vm_list
     - name: Python command to generate survey form
-      shell: "python3 {{project_path}}/append-survey.py {{ vm_list | to_yaml }} {{ lookup('env', 'TOWER_HOST') }} {{ lookup('env', 'TOWER_USERNAME') }} {{ lookup('env', 'TOWER_PASSWORD') }}"
+      shell: "python3 {{project_path}}/append-survey.py {{ vm_list | to_yaml | quote }} {{ lookup('env', 'TOWER_HOST') }} {{ lookup('env', 'TOWER_USERNAME') }} {{ lookup('env', 'TOWER_PASSWORD') }}"
