@@ -22,6 +22,6 @@ headers = {
     'content-type': 'application/json',
 }
 
-response = requests.post('https://{}/api/v2/workflow_job_templates/{}/survey_spec/'.format(ANSIBLE_HOST_IP, ANSIBLE_JOB_TEMPLATE), headers=headers, data=JSON.stringify(json_survey), verify=False, auth=(ANSIBLE_USERNAME, ANSIBLE_PASSWORD))
+response = requests.post('https://{}/api/v2/workflow_job_templates/{}/survey_spec/'.format(ANSIBLE_HOST_IP, ANSIBLE_JOB_TEMPLATE), headers=headers, data=json.stringify(json_survey), verify=False, auth=(ANSIBLE_USERNAME, ANSIBLE_PASSWORD))
 
 
