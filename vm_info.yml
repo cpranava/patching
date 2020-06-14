@@ -9,7 +9,7 @@
     - debug:
         var: project_path
     - name: Collecting all poweredoff VM Names
-      shell:  "{{project_path}}/vm_cli.ps1 -vcenter_server {{ lookup("env", "VMWARE_HOST") }} -vcenter_user {{ lookup("env", "VMWARE_USER") }} -vcenter_password {{ lookup("env", "VMWARE_PASSWORD") }}"
+      shell:  '{{project_path}}/vm_cli.ps1 -vcenter_server {{ lookup("env", "VMWARE_HOST") }} -vcenter_user {{ lookup("env", "VMWARE_USER") }} -vcenter_password {{ lookup("env", "VMWARE_PASSWORD") }}'
       args:
         executable: /usr/bin/pwsh
       register: vmnames
