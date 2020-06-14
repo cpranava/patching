@@ -1,7 +1,7 @@
 param (
     [Parameter(Mandatory=$true)][string]$vcenter_server,
     [Parameter(Mandatory=$true)][string]$vcenter_user,
-    [Parameter(Mandatory=$true)][string]$vcenter_password,
+    [Parameter(Mandatory=$true)][string]$vcenter_password
  )
 
 #Connecting to vCenter
