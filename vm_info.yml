@@ -9,7 +9,9 @@
     - debug:
         var: project_path
     - name: Collecting all poweredoff VM Names
-      shell:  "pwsh {{project_path}}/vm_cli.ps1"
+      shell:  "{{project_path}}/vm_cli.ps1"
+      args:
+        executable: /usr/bin/pwsh
       register: vmnames
     - debug: var=vmnames
     - set_fact:
