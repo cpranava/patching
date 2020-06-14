@@ -1,0 +1,18 @@
+{
+  "description": "",
+  "name": "",
+  "spec": [
+    {
+      "required": true,
+      "min": null,
+      "default": "",
+      "max": null,
+      "question_description": "",
+      "choices": "",
+      "new_question": true,
+      "variable": "vm_name",
+      "question_name": "Flavor",
+      "type": "multiplechoice"
+    }
+  ]
+}
