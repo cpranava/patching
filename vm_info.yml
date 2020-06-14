@@ -12,7 +12,7 @@
         mode: u+x,g+x,o+x
 
     - name: Collecting all poweredoff VM Names
-      shell:  /tmp/vm_cli.ps1
+      shell:  "pwsh /tmp/vm_cli.ps1"
       register: vmnames
 
     - debug: var=vmnames
