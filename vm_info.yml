@@ -9,6 +9,7 @@
     - copy:
         src: vm_cli.ps1
         dest: /tmp
+        mode: u+x,g+x,o+x
 
     - name: Collecting all poweredoff VM Names
       shell:  /tmp/vm_cli.ps1
