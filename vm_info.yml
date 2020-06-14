@@ -2,27 +2,19 @@
 - hosts: localhost
   connection: local
   gather_facts: true
+  vars:
+    project_path: "{{ lookup('env', 'PWD') }}"
   tasks:
     - debug: var=ansible_hostname
     - debug:
         var: project_path
-    - copy:
-        src: vm_cli.ps1
-        dest: /tmp
-        mode: u+x,g+x,o+x
-
     - name: Collecting all poweredoff VM Names
-      shell:  "pwsh /tmp/vm_cli.ps1"
+      shell:  "pwsh {{project_path}}/vm_cli.ps1"
       register: vmnames
-
     - debug: var=vmnames
-
     - set_fact:
         vm_list: "{{ vmnames.stdout_lines }}"
-
     - debug: var=vm_list
-
-
 #     - name: Generating Template for survey
 #       template:
 #         src: vm_name_vars.j2
