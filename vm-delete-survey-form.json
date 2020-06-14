@@ -7,11 +7,11 @@
       "min": null,
       "default": "",
       "max": null,
-      "question_description": "",
+      "question_description": "Select the list of VMs to be deleted",
       "choices": "",
       "new_question": true,
       "variable": "vm_name",
-      "question_name": "Flavor",
+      "question_name": "VM names",
       "type": "multiplechoice"
     }
   ]
