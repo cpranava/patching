@@ -1,0 +1,65 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    tower_user: admin
+    tower_pass: redhat
+    tower_url: https://192.168.1.203
+    project_path: "{{ lookup('env', 'PWD') }}"
+  tasks:
+    - debug: var=ansible_hostname
+    - debug:
+        var: project_path
+
+    - name: Collecting all poweredoff VM Names
+      shell:  "pwsh {{ project_path }}/vm_cli.ps1"
+      register: vmnames
+
+    - debug: var=vmnames
+
+    - set_fact:
+        vm_list: "{{ vmnames.stdout_lines }}"
+
+    - debug: var=vm_list
+
+
+    - name: Generating Template for survey
+      template:
+        src: "{{ project_path }}/vm_name_vars.j2"
+        dest: /tmp/vm_name_vars.yml
+
+    - name: copy vars file on all tower nodes
+      copy:
+        src: /tmp/vm_name_vars.yml
+        dest: /tmp/vm_name_vars.yml
+      delegate_to: 192.168.1.201
+
+    - name: copy vars file on all tower nodes
+      copy:
+        src: /tmp/vm_name_vars.yml
+        dest: /tmp/vm_name_vars.yml
+      delegate_to: 192.168.1.202
+    
+    - name: copy vars file on all tower nodes
+      copy:
+        src: /tmp/vm_name_vars.yml
+        dest: /tmp/vm_name_vars.yml
+      delegate_to: 192.168.1.203
+
+
+        #- name: adding all towernodes in temp host group
+        #add_host:
+        #group: towernodes
+        #name: "{{ item }}"
+        #loop: "{{ tower_nodes }}"
+
+      #- hosts: towernodes
+      #gather_facts: false
+      #tasks:      
+      #- name: copy vars file on all tower nodes
+      #copy:
+      #  src: /tmp/vm_name_vars.yml
+      #  dest: /tmp/vm_name_vars.yml
+
+
