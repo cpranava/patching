@@ -5,18 +5,13 @@
   vars:
     project_path: "{{ lookup('env', 'PWD') }}"
   tasks:
-    - debug: var=ansible_hostname
-    - debug:
-        var: project_path
     - name: Collecting all poweredoff VM Names
       shell:  "{{project_path}}/vm_cli.ps1 -vcenter_server {{ lookup('env', 'VMWARE_HOST') }} -vcenter_user {{ lookup('env', 'VMWARE_USER') }} -vcenter_password {{ lookup('env', 'VMWARE_PASSWORD') }}"
       args:
         executable: /usr/bin/pwsh
       no_log: True
       register: vmnames
-    - debug: var=vmnames
     - set_fact:
         vm_list: "{{ vmnames.stdout_lines }}"
-    - debug: var=vm_list
     - name: Python command to generate survey form
       shell: "python3 {{project_path}}/append-survey.py {{ vm_list | to_yaml | quote }} {{ lookup('env', 'TOWER_HOST') }} {{ lookup('env', 'TOWER_USERNAME') }} {{ lookup('env', 'TOWER_PASSWORD') }}"
