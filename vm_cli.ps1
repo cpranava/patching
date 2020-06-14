@@ -1,5 +1,5 @@
 #Connecting to vCenter
-Connect-VIServer -Server 192.168.1.182 -User administrator -Password Redhat@123 | Out-Null
+Connect-VIServer -Server $vcenter_server -User $vcenter_user -Password $vcenter_password | Out-Null
 
 
 #Listing all PoweredOff VM
