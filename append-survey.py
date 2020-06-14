@@ -3,7 +3,7 @@ import sys
 import requests
 
 ANSIBLE_HOST_IP=sys.argv[2]
-ANSIBLE_JOB_TEMPLATE=22
+ANSIBLE_JOB_TEMPLATE=34
 ANSIBLE_USERNAME=sys.argv[3]
 ANSIBLE_PASSWORD=sys.argv[4]
 
