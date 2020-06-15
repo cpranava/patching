@@ -1,7 +1,7 @@
 - hosts: "{{ zimbra_server_ip }}"
   roles:
      - role: zimbraserver
-       hostname: zimbraserver.example.com
+       hostname: zimbraserver
        domain: example.com
        zmpasswd: "redhat"
        zmnetwork: "172.31.16.0/20"
