@@ -9,5 +9,5 @@
          surname: "{{ last_name }}"
          password: "{{ win_password }}"
          state: present
-         domain_username: "{{ win_domain }}\\{{ ansible_user }}"
-         domain_password: "{{ ansible_password }}"
+         domain_username: "{{ win_domain }}\\{{ windows_ad_user }}"
+         domain_password: "{{ windows_ad_password }}"
