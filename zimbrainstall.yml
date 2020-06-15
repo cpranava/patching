@@ -4,4 +4,4 @@
        hostname: zimbraserver
        domain: example.com
        zmpasswd: "redhat"
-       zmnetwork: "172.31.16.0/20"
+       zmnetwork: "{{ zm_network }}"
