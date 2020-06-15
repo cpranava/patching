@@ -13,6 +13,7 @@
       register: vm_deletion_output
       loop: "{{ vm_name }}"
       when: vm_name is defined
+      delegate_to: localhost
 
     - debug:
         msg: "VMs deleted successfully"
