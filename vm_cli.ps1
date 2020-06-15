@@ -20,7 +20,7 @@ $vmPoweredOff = $vms | %{$_.Name}
 
 #Events to check wheather it is 30days old
 #NOTE Replace  0   with  30
-$events = Get-VIEvent -Start (Get-Date).AddDays(-0) -Entity $vms |   where{$_.FullFormattedMessage -like "*is powered off"}
+$events = Get-VIEvent -Start (Get-Date).AddDays(-30) -Entity $vms |   where{$_.FullFormattedMessage -like "*is powered off"}
 $lastMonthVM = $events | %{$_.Vm.Name}
 
 
