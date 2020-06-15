@@ -8,7 +8,7 @@
          firstname: "{{ first_name }}"
          surname: "{{ last_name }}"
          password: "{{ win_password }}"
-         #path: "{{ win_path }}"
+         path: "{{ win_path }}"
          state: present
          domain_username: "{{ win_domain }}\\{{ windows_ad_username }}"
          domain_password: "{{ windows_ad_password }}"
