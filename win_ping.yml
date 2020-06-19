@@ -1,0 +1,4 @@
+---
+- hosts: window.prodevnindia.com
+  tasks:
+    - win: ping
