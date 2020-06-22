@@ -5,18 +5,18 @@
   become: true
   become_method: sudo  
   tasks:    
-#     - name: Check  if VM is RHEL machine
-#       fail:
-#         msg: "Virtual Machine does not have RHEL OS"
-#       when: hostvars[inventory_hostname]['ansible_distribution'] != "RedHat"
-#     - name: Check if machine has RedHat Subscription
-#       shell:
-#         cmd: subscription-manager list | awk '/Status:/ {print $2}'
-#       register: status
-#     - name: Fail if subscription is not available 
-#       fail:
-#         msg: " The Virtual Machine does not have RedHat Subscription. Get RedHat Subscription before proceeding "
-#       when: status != "Subscribed"
+    - name: Check  if VM is RHEL machine
+      fail:
+        msg: "Virtual Machine does not have RHEL OS"
+      when: hostvars[inventory_hostname]['ansible_distribution'] != "RedHat"
+    - name: Check if machine has RedHat Subscription
+      shell:
+        cmd: subscription-manager list | awk '/Status:/ {print $2}'
+      register: status
+    - name: Fail if subscription is not available 
+      fail:
+        msg: " The Virtual Machine does not have RedHat Subscription. Get RedHat Subscription before proceeding "
+      when: status != "Subscribed"
 #     - name: update the packages
 #       yum:
 #         name: '*'
@@ -27,7 +27,7 @@
        port: 465
        username: alekhya.challa@prodevans.com 
        password: vkfeozcptoumvlmu
-       to: Alekhya <alekhya.challa@prodevans.com>
+       to: Chandrahasa Vemu <chandrahasa.vemu@prodevans.com>
        subject: Packages Update
        body: 'The updation of packages is complete.'
 
