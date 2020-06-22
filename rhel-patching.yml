@@ -9,14 +9,14 @@
       fail:
         msg: "Virtual Machine does not have RHEL OS"
       when: hostvars[inventory_hostname]['ansible_distribution'] != "RedHat"
-    - name: Check if machine has RedHat Subscription
-      shell:
-        cmd: subscription-manager list | awk '/Status:/ {print $2}'
-      register: status
-    - name: Fail if subscription is not available 
-      fail:
-        msg: " The Virtual Machine does not have RedHat Subscription. Get RedHat Subscription before proceeding "
-      when: status != "Subscribed"
+#     - name: Check if machine has RedHat Subscription
+#       shell:
+#         cmd: subscription-manager list | awk '/Status:/ {print $2}'
+#       register: status
+#     - name: Fail if subscription is not available 
+#       fail:
+#         msg: " The Virtual Machine does not have RedHat Subscription. Get RedHat Subscription before proceeding "
+#       when: status != "Subscribed"
 #     - name: update the packages
 #       yum:
 #         name: '*'
