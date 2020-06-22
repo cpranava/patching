@@ -21,6 +21,15 @@
       yum:
         name: '*'
         state: latest
+    - name: Send a success email
+      mail:
+       host: smtp.gmail.com
+       port: 465
+       username: alekhya.challa@prodevans.com 
+       password: vkfeozcptoumvlmu
+       to: Chandrahasa Vemu <chandrahasa.vemu@prodevans.com>
+       subject: Packages Update
+       body: 'The updation of packages is complete.'
 
 
    
